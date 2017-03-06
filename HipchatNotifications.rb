@@ -2,11 +2,10 @@ class HipchatNotifications
   require "rest-client"
   require "json"
 
-  def self.privateMessage(authToken, endpointURL, message, color)
+  def self.privateMessage(authToken, endpointURL, message, color, pushNotification)
     authString = "Bearer " + authToken
     testPost = "<span style=\"color:"+color+"\">" + message + "</span>"
-    pmpayload = JSON.generate({ 'message_format'=> 'html', 'notify'=> 'false', 'message'=> testPost })
-    #jsonpayload = JSON.generate(pmpayload)
+    pmpayload = JSON.generate({ 'message_format'=> 'html', 'notify'=> pushNotification, 'message'=> testPost })
     headers = { 'Authorization' => authString, :content_type => 'application/json' }
     begin
       RestClient.post(endpointURL, pmpayload, headers)
