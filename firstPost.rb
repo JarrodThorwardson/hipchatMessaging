@@ -13,7 +13,7 @@ errorMessage = "This is what happens when something goes wrong."
 
 begin
   HipchatBuildNotices.buildStart(token, pmurl, testMessage)
-  HipchatBuildNotices.buildStart(token, pmurl, finishMessage)
+  HipchatBuildNotices.buildFinish(token, pmurl, finishMessage)
   HipchatBuildNotices.buildError(token, pmurl, errorMessage)
 rescue RestClient::ExceptionWithResponse => e
   puts(e.response)
