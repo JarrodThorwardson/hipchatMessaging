@@ -33,8 +33,8 @@ finishMessage = "This is what it looks like when a build finishes."
 errorMessage = "This is what happens when something goes wrong."
 
 begin
-  HipchatBuildNotices.buildStart(token, testurl, verboseTestMessage, vmBuildID)
-  HipchatBuildNotices.buildFinish(token, testurl, verboseTestMessage, vmBuildID)
+ # HipchatBuildNotices.buildStart(token, testurl, verboseTestMessage, vmBuildID)
+ # HipchatBuildNotices.buildFinish(token, testurl, verboseTestMessage, vmBuildID)
   HipchatBuildNotices.buildError(token, testurl, verboseTestMessage, vmBuildID)
 rescue RestClient::ExceptionWithResponse => e
   puts(e.response)
